@@ -1,19 +1,13 @@
-#from turtle import title
 from re import template
-from turtle import title
-from django.shortcuts import get_object_or_404, render
-from .models import Post, Group
+from django.shortcuts import render, get_object_or_404
+from .models import Group, Post
 
 
 def index(request):
     template = 'posts/index.html'
     posts = Post.objects.order_by('-pub_date')[:10]
-    #title = 'Главная страница'
-    #text = 'Последние обновления'
     context = {
         'posts': posts,
-        #'title': title,
-        #'text': text,
     }
     return render(request, template, context)
 
