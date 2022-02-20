@@ -6,10 +6,10 @@ User = get_user_model()
 
 class Group(models.Model):
     title = models.CharField(max_length=50)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     description = models.CharField(max_length=100)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.title
 
 
